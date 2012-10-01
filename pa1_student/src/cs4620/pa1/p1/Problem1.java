@@ -166,7 +166,50 @@ public class Problem1 extends JFrame implements GLSceneDrawer, ChangeListener {
 			gl.glPolygonMode(GL2.GL_FRONT_AND_BACK, GL2.GL_FILL);
 
 		meshes.get(meshIndex).render(gl);
+		//snowflake(gl, 10);
 	}
+	
+	/*void snowflake(GL2 gl, int level) {
+		if (level == 1) {
+			gl.glBegin(GL2.GL_LINES);
+			gl.glVertex2f(0.0f, 0.0f);
+			gl.glVertex2f(1.0f, 0.0f);
+			gl.glEnd();
+		} else {
+			// YOUR CODE HERE
+			float third = (float)1/(float)3;
+			
+			gl.glPushMatrix();
+			gl.glScalef(third, third, third);
+
+			gl.glPushMatrix();
+			gl.glTranslatef(1, 1, 0);
+			snowflake(gl, level - 1);
+			gl.glPopMatrix();
+			
+			gl.glPushMatrix();
+			gl.glTranslatef(2, 0, 0);
+			snowflake(gl, level - 1);
+			gl.glPopMatrix();
+			
+			gl.glPushMatrix();
+			gl.glTranslatef(1, 0, 0);
+			gl.glRotatef(90, 0, 0, 1);
+			snowflake(gl, level - 1);
+			gl.glPopMatrix();
+			
+			gl.glPushMatrix();
+			gl.glTranslatef(2, 1, 0);
+			gl.glRotatef(-90, 0, 0, 1);
+			snowflake(gl, level - 1);
+			gl.glPopMatrix();
+			
+			snowflake(gl, level - 1);
+			
+			gl.glPopMatrix();
+			
+		}
+	}*/
 
 	@Override
 	public void stateChanged(ChangeEvent e) {

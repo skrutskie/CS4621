@@ -11,7 +11,28 @@ public class RotateManip extends Manip
 	@Override
 	public void dragged(Vector2f mousePosition, Vector2f mouseDelta)
 	{
+		float rot = mouseDelta.y * 100;
+		
 		// TODO: (Problem 1) Implement this manipulator.
+		switch(axisMode){
+		case PICK_X:
+			transformationNode.rotation.x += rot;
+			break;
+			
+		case PICK_Y:
+			transformationNode.rotation.y += rot;
+			break;
+			
+		case PICK_Z:
+			transformationNode.rotation.z += rot;
+			break;
+			
+		case PICK_CENTER:
+			break;
+			
+		default:
+			break;
+		}
 	}
 
 	private Vector3f xAxis = new Vector3f();
